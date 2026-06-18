@@ -2,8 +2,10 @@
 
 namespace App\Filament\Resources\Features\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use App\Enums\Feature\FeatureStatus;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
 class FeatureForm
@@ -14,7 +16,11 @@ class FeatureForm
             ->components([
                 TextInput::make('name')
                     ->required(),
-                TextInput::make('status')
+                Select::make('status')
+                    ->options(
+                        FeatureStatus::class,
+                    )
+                    ->enum(FeatureStatus::class)
                     ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
