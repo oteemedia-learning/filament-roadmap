@@ -17,6 +17,7 @@ class FeaturesTable
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('status')
+                    ->badge()
                     ->searchable(),
                 TextColumn::make('cost')
                     ->money()
